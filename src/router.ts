@@ -56,7 +56,7 @@ class Router {
 			load = routes["pageNotFound"]
 		}
 
-		this.urlInput!.value = parsedUrl.domain + "/" + parsedUrl.path
+		this.urlInput!.value = parsedUrl.domain + (parsedUrl.path ? ("/" + parsedUrl.path) : "")
 		load(document.querySelector<HTMLDivElement>("#viewport")!, parsedUrl.path)
 	}
 	

@@ -4,7 +4,7 @@ import { router } from '../router'
 export function loadUrlBar(parent : HTMLDivElement){
     parent.innerHTML = urlBarHtml
 
-    const urlInput = document.querySelector<HTMLInputElement>("#url-input")!
+    const urlInput = $<HTMLInputElement>("#url-input")!
     urlInput.addEventListener("keydown", (event)=>{
         if (event.key == "Enter") {
             const url = urlInput.value 
@@ -13,10 +13,10 @@ export function loadUrlBar(parent : HTMLDivElement){
     })
 
     return {
-        backBtn: document.querySelector<HTMLButtonElement>("#back-btn")!,
-        forwardBtn: document.querySelector<HTMLButtonElement>("#forward-btn")!,
-        refreshBtn: document.querySelector<HTMLButtonElement>("#refresh-btn")!,
-        urlInput: document.querySelector<HTMLInputElement>("#url-input")!
+        backBtn: $<HTMLButtonElement>("#back-btn")!,
+        forwardBtn: $<HTMLButtonElement>("#forward-btn")!,
+        refreshBtn: $<HTMLButtonElement>("#refresh-btn")!,
+        urlInput: $<HTMLInputElement>("#url-input")!
     }
 }
 
