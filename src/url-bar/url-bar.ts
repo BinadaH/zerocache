@@ -11,5 +11,11 @@ export function loadUrlBar(parent : HTMLDivElement){
             router.navigateTo(url)
         }
     })
+
+    return {
+        backBtn: document.querySelector<HTMLButtonElement>("#back-btn")!,
+        forwardBtn: document.querySelector<HTMLButtonElement>("#forward-btn")!,
+        refreshBtn: document.querySelector<HTMLButtonElement>("#refresh-btn")!
+    }
 }
 
