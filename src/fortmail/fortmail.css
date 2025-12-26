@@ -31,12 +31,14 @@ input {
     border-radius: .5em;
     height: 2.5em;
     width: 25em;
+    padding-left: .5em;
 }
 
 .loginMain {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: calc(100vh - 10em);
 }
 
 .card h1 {
