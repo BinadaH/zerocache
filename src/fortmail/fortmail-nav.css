@@ -1,0 +1,19 @@
+.navbar {
+    position: sticky;
+    top: 53.17px;
+    width: 100%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar li {
+    cursor: pointer;
+}
