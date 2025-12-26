@@ -15,7 +15,8 @@ export function loadUrlBar(parent : HTMLDivElement){
     return {
         backBtn: document.querySelector<HTMLButtonElement>("#back-btn")!,
         forwardBtn: document.querySelector<HTMLButtonElement>("#forward-btn")!,
-        refreshBtn: document.querySelector<HTMLButtonElement>("#refresh-btn")!
+        refreshBtn: document.querySelector<HTMLButtonElement>("#refresh-btn")!,
+        urlInput: document.querySelector<HTMLInputElement>("#url-input")!
     }
 }
 

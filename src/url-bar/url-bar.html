@@ -13,6 +13,7 @@
   padding: 8px 10px;
   gap: 8px;
   user-select: none;
+  height: 2em;
 }
 
 .nav-icon {
@@ -75,6 +76,51 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Stili per la Barra dei Preferiti */
+.bookmarks-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--header-bg);
+  padding: 4px 10px 8px 10px; /* Spazio extra sotto */
+  gap: 4px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 1.5em;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.bookmark-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bookmark-item img {
+  width: 16px;
+  height: 16px;
+}
+
+.bookmark-item svg {
+  opacity: 0.7;
+}
+
+.bookmark-separator {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 4px;
+}
+
 </style>
 <div class="browser-header">
   <button id="back-btn" class="nav-icon" title="Indietro">
@@ -95,4 +141,20 @@
       <input type="text" id="url-input" spellcheck="false" autocomplete="off" value="home.com">
     </div>
   </div>
+</div>
+<div class="bookmarks-bar">
+  <a href="#" class="bookmark-item">
+    <img src="https://www.google.com/favicon.ico" alt="icon">
+    <span>Google</span>
+  </a>
+  <a href="#" class="bookmark-item">
+    <img src="https://github.com/favicon.ico" alt="icon">
+    <span>GitHub</span>
+  </a>
+  <a href="#" class="bookmark-item">
+    <img src="https://www.youtube.com/favicon.ico" alt="icon">
+    <span>YouTube</span>
+  </a>
+
+
 </div>
