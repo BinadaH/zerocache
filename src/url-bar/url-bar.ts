@@ -1,4 +1,3 @@
-import urlBarCss from './url-bar.css?inline'
 import urlBarHtml from './url-bar.html?raw'
 import { router } from '../router'
 

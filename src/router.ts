@@ -1,5 +1,5 @@
-import {load as LoadFortmail} from './fortmail/main'
-import {load as LoadFartmail} from './fartmail/main'
+import {load as LoadFortmail} from './fortmail/fortmail'
+import {load as LoadFartmail} from './fartmail/fartmail'
 
 
 const routes : Record<string, (viewport: HTMLDivElement)=> void> = {
