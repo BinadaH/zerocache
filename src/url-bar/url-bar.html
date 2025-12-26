@@ -1,0 +1,95 @@
+<style>
+  :root {
+  --header-bg: #202124;    /* Grigio molto scuro stile Chrome */
+  --input-bg: #35363a;     /* Sfondo input */
+  --text-color: #e8eaed;
+  --accent-color: #8ab4f8; /* Blu Google */
+}
+
+.browser-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--header-bg);
+  padding: 8px 10px;
+  gap: 8px;
+  user-select: none;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.address-container {
+  flex-grow: 1; /* Prende tutto lo spazio dopo i bottoni */
+  display: flex;
+  align-items: center;
+}
+
+.address-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: var(--input-bg);
+  border-radius: 20px;
+  padding: 5px 14px;
+  border: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.address-bar:focus-within {
+  background-color: #202124;
+  border-color: var(--accent-color);
+}
+
+.lock-icon {
+  font-size: 11px;
+  margin-right: 10px;
+  opacity: 0.6;
+}
+
+#url-input {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  width: 100%;
+  font-size: 13px;
+  outline: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+</style>
+<div class="browser-header">
+  <button id="back-btn" class="nav-icon" title="Indietro">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  </button>
+  
+  <button id="forward-btn" class="nav-icon" title="Avanti">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+  </button>
+  
+  <button id="refresh-btn" class="nav-icon" title="Ricarica">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+  </button>
+
+  <div class="address-container">
+    <div class="address-bar">
+      <span class="lock-icon">🔒</span>
+      <input type="text" id="url-input" spellcheck="false" autocomplete="off" value="home.com">
+    </div>
+  </div>
+</div>
