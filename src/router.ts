@@ -1,5 +1,6 @@
 import {load as LoadFortmail} from './fortmail/fortmail'
 import {load as LoadFartmail} from './fartmail/fartmail'
+import { load as LoadDNSight } from './dnsight/dnsight';
 import {load as LoadPageNotFound} from './pageNotFound/pageNotFound'
 
 interface ParsedURL {
@@ -33,6 +34,7 @@ function parseBrowserUrl(input: string): ParsedURL {
 const routes : Record<string, (viewport: HTMLDivElement, path: string)=> void> = {
 	"fortmail.cloud": LoadFortmail,
 	"fartmail.cloud": LoadFartmail,
+	"dnsight.com": LoadDNSight,
 	"pageNotFound": LoadPageNotFound
 }
 
