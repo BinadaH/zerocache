@@ -2,6 +2,9 @@ import {load as LoadFortmail} from './fortmail/fortmail'
 import {load as LoadFartmail} from './fartmail/fartmail'
 import { load as LoadDNSight } from './dnsight/dnsight';
 import {load as LoadPageNotFound} from './pageNotFound/pageNotFound'
+import {load as LoadDennsLife} from './dennslife/dennslife'
+
+
 import {animate} from 'animejs'
 interface ParsedURL {
 	domain: string;
@@ -35,7 +38,8 @@ const routes : Record<string, (viewport: HTMLDivElement, path: string)=> void> =
 	"fortmail.cloud": LoadFortmail,
 	"fartmail.cloud": LoadFartmail,
 	"dnsight.com": LoadDNSight,
-	"pageNotFound": LoadPageNotFound
+	"dennslife.blog": LoadDennsLife,
+	"pageNotFound": LoadPageNotFound,
 }
 
 class Router {
@@ -54,6 +58,16 @@ class Router {
 	}
 	
 	navigateTo(url: string)  {
+		const parsedUrl = parseBrowserUrl(url)
+		this.history = this.history.slice(0, this.currPos + 1)
+		this.history.push(parsedUrl)
+		this.currPos = this.history.length - 1
+
+		this.animateLoading(()=>this.loadPage(parsedUrl))
+		
+	}
+
+	animateLoading(callback : () => void){
 		animate(this.loadingLine!, {
 			opacity: { from: 0, to: 1, duration: 500 },
 			display: { from: "none", to: "block"}
@@ -68,11 +82,9 @@ class Router {
 		})
 
 		setTimeout(()=>{
-			const parsedUrl = parseBrowserUrl(url)
-			this.history = this.history.slice(0, this.currPos + 1)
-			this.history.push(parsedUrl)
-			this.currPos = this.history.length - 1
-			this.loadPage(parsedUrl)	
+			
+			callback()	
+
 			animate(this.loadingLine!, {
 				opacity: { from: 1, to: 0, duration: 500 },
 				onComplete: () =>  {
@@ -86,17 +98,16 @@ class Router {
 			animate(this.reloadBtn!, {
 				opacity: [
 					{to: "0.2", duration: 50},
-					{ from: "0", to: "1", duration: 700 }
+					{ from: "0", to: "1", duration: 500 }
 				],
 				rotate: [
 					{ to: "-1turn", duration: 10 }, 
-					{ to: "0turn", duration: 700 }
+					{ to: "0turn", duration: 500 }
 				],
 			})
 
 			// loading_anim.loop = false
-		}, Math.round(Math.random() * 800) + 500)
-		
+		}, Math.round(Math.random() * 300) + 200)
 	}
 	
 	loadPage(parsedUrl : ParsedURL){
@@ -120,7 +131,8 @@ class Router {
 	}
 	
 	reload() {
-		this.loadPage(this.history[this.currPos])
+		this.animateLoading(()=>this.loadPage(this.history[this.currPos]))
+		
 	}
 	
 	goForward() {

@@ -14,6 +14,15 @@ const GameState = {
 }
 
 
+type FortmailUser = {
+  email: string,
+  password: string,
+}
+
+const GameInfo = {
+  fortmailLoggedInUsers : [] as FortmailUser[]
+}
+
 type GameStep = keyof typeof GameState
 
 export function setGameStep(step: GameStep, value: boolean) {
