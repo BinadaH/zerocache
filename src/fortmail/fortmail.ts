@@ -3,10 +3,12 @@ import fortmailLogin from './fortmail-login.html?raw'
 import fortmailCSS from "./fortmail.css?inline"
 import navBar from "./fortmail-nav.html?raw"
 import navBarCSS from "./fortmail-nav.css?inline"
+import authData from "./auth-data.json"
+import loadInbox from "./inbox"
 import {router} from "../router"
 
 export function load(viewport: HTMLDivElement, path: string){
-    viewport.innerHTML = navBar
+    viewport.innerHTML = navBar + `<style>${navBarCSS}</style>`
     switch(path) {
         case "":
             loadHome(viewport);
@@ -14,30 +16,54 @@ export function load(viewport: HTMLDivElement, path: string){
         case "login":
             loadLogin(viewport)
             break;
-        default: 
+        case "inbox":
+            loadInbox(viewport)
+            break;
     }
 
-    document.querySelector<HTMLLIElement>("#home")!.onclick = () => {
+    $<HTMLLIElement>("#home")!.onclick = () => {
         router.navigateTo("fortmail.cloud/")
     } 
 
-    document.querySelector<HTMLButtonElement>("#login")!.onclick = () => {
+    $<HTMLButtonElement>("#login")!.onclick = () => {
         router.navigateTo("fortmail.cloud/login")
     }
 }
 
 const loadHome = (viewport: HTMLDivElement) => {
     const site = fortmail +
-                `<style>${navBarCSS}${fortmailCSS}</style>`
+                `<style>${fortmailCSS}</style>`
     viewport.innerHTML += site
 
-    document.querySelector<HTMLButtonElement>("#login2")!.onclick = () => {
+    $<HTMLButtonElement>("#login2")!.onclick = () => {
         router.navigateTo("fortmail.cloud/login")
     }
 }
 
 const loadLogin = (viewport: HTMLDivElement) => {
     const site = fortmailLogin +
-                `<style>${navBarCSS}${fortmailCSS}</style>`
+                `<style>${fortmailCSS}</style>`
     viewport.innerHTML += site
+
+    $<HTMLInputElement>("#email")!.onchange = () => {
+        const email = $<HTMLInputElement>("#email")!.value
+        const password = $<HTMLInputElement>("#password")!
+        authData.forEach(user => {
+            if (user.email == email) {
+                password.value = user.password
+            }
+        });
+    }
+
+    $<HTMLButtonElement>("#loginBtn")!.onclick = () => {
+        const email = $<HTMLInputElement>("#email")!.value
+        const password = $<HTMLInputElement>("#password")!.value
+        authData.forEach(user => {
+            if (user.email == email && user.password == password) {
+                router.navigateTo("fortmail.cloud/inbox")
+            }
+        })
+        $<HTMLDivElement>("#error")!.innerText = "Wrong credentials!"
+    }
 }
+

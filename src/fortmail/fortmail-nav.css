@@ -1,19 +1,36 @@
-.navbar {
-    position: sticky;
-    top: 5em;
-    width: 100%;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(6px);
-}
+.fortmailNavBody {
+    font-size: clamp(0.875rem, 0.6932rem + 0.4545vw, 1rem);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    color: #fff;
 
-.navbar ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+    & .navbar {
+        position: sticky;
+        top: 5em;
+        width: 100%;
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+        background-color: rgba(0,0,0, .5);
+        backdrop-filter: blur(6px);
+    }
 
-.navbar li {
-    cursor: pointer;
+    & h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    & h2 {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    
+    & .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    & .navbar li {
+        cursor: pointer;
+    }
 }
