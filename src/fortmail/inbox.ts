@@ -4,15 +4,25 @@ import emailData from "./email-data.json"
 import { GameInfo } from "../state"
 import { router } from "../router"
 import guidaPDF from "./assets/guida_demo.pdf"
+import rZIP from "./assets/r.zip?url"
+
+interface Email {
+    sender: string;
+    object: string;
+    content: string;
+    date: string;
+    new: boolean;
+    response?: string[];
+}
 
 export default function loadInbox (viewport: HTMLDivElement) {
     const site = fortmailInbox +
                 `<style>${inboxCSS}</style>`
     viewport.innerHTML += site
 
-    const currUser = GameInfo.currUser!
-    const currEmailData = emailData[currUser.email as keyof typeof emailData]
 
+    const currUser = GameInfo.currUser!
+    const currEmailData = emailData[currUser.email as keyof typeof emailData] as unknown as Email[];
     const emailModal = $<HTMLDivElement>("#emailModal")!
     const closeBtn = $<HTMLSpanElement>(".close-button")!
 
@@ -45,23 +55,50 @@ export default function loadInbox (viewport: HTMLDivElement) {
             document.querySelector("#modalSender")!.textContent = `Da: ${jsonEmail.sender}`;
             
             const modalBody = document.querySelector("#modalBody")!;
-            modalBody.innerHTML = jsonEmail.content; 
+            modalBody.innerHTML = jsonEmail.content;
+            
+            if (jsonEmail.response) {
+                const responseHTML = `
+                    <div class="email-responses">
+                        ${jsonEmail.response.map(line => {
+                            const sender = line.split(':')[0].trim().toLowerCase();
+                            return `
+                                <hr class="chat-separator">
+                                <p class="response-line" data-sender="${sender}">
+                                    ${line.replace(/\n/g, '<br>')}
+                                </p>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+                modalBody.innerHTML += responseHTML;
+            }
             
             emailModal.style.display = "flex";
 
             if (jsonEmail.sender == "assistenza@fartmail.cloud") {
-                $<HTMLAnchorElement>("#toFakeLogin")!.onclick = () => {
-                    router.navigateTo("fartmail.cloud/login")
+                const fakeLogin = $<HTMLAnchorElement>("#toFakeLogin")
+                if (fakeLogin) {
+                    fakeLogin.onclick = () => {
+                        router.navigateTo("fartmail.cloud/login")
+                    }
                 }
             }
 
             if (jsonEmail.sender == "assistenza@cybersec.com") {
-                $<HTMLAnchorElement>("#downloadSEC_PDF")!.href = guidaPDF
+                const downloadSEC_PDF = $<HTMLAnchorElement>("#downloadSEC_PDF")
+                if (downloadSEC_PDF) {
+                    downloadSEC_PDF.href = guidaPDF
+                }
             }
 
-                
+            if (jsonEmail.sender == "dennet.herman@fortmail.cloud") {
+                const downloadRZIP = $<HTMLAnchorElement>("#downloadRZIP")
+                if (downloadRZIP) {
+                    downloadRZIP.href = rZIP
+                }
+            }
         }
-        
     }
     
     window.addEventListener("click", (event) => {
@@ -76,7 +113,7 @@ export default function loadInbox (viewport: HTMLDivElement) {
     loadEmails(currEmailData)
 }
 
-const loadEmails = async (currEmailData: typeof emailData["robbin.greco@fortmail.cloud"]) => {
+const loadEmails = async (currEmailData: Email[]) => {
     const container = $<HTMLDivElement>(".emailContainer")!
 
     const today = new Date();

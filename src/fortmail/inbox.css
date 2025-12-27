@@ -161,4 +161,29 @@ body {
         margin-top: 1em;
         font-size: 2em;
     }
+
+    & .chat-separator {
+        border: 0;
+        border-top: 1px solid #000000;
+        margin: 0;
+    }
+
+    & .response-line {
+        padding: 8px 12px;
+        line-height: 1.4;
+        color: #6C4A7A;
+        border-radius: 4px;
+        margin: 0;
+    }
+
+    & .response-line[data-sender^="- rebecca"] {
+        border-left: 3px solid #6C4A7A;
+        background-color: rgba(108, 74, 122, 0.05);
+    }
+
+
+    & .response-line[data-sender^="- anonymous"] {
+        border-left: 3px solid #d9534f;
+        background-color: rgba(217, 83, 79, 0.05);
+    }
 }

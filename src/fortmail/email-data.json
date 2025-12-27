@@ -1,6 +1,5 @@
 {
     "robbin.greco@fortmail.cloud": [
-
         {
             "sender": "info@cinemastella.it",
             "object": "Conferma acquisto biglietti - Cinema Stella",
@@ -45,9 +44,67 @@
         }
     ],
     "dennet.herman@fortmail.cloud": [
-
+        {
+            "sender": "noreply@corrierespresso.it",
+            "object": "Consegna prevista per oggi",
+            "content": "La tua spedizione #238716 è in consegna oggi tra le 14 e le 18. Preparati a riceverla!",
+            "date": "14-03-2025",
+            "new": false
+        },
+        {
+            "sender": "franco@fortmail.cloud",
+            "object": "Cambio orario riunione",
+            "content": "Ehi, la riunione di domani è anticipata alle 9:30. Fammi sapere se ti va bene.",
+            "date": "20-03-2025",
+            "new": false
+        },
+        {
+            "sender": "info@bibliotecacentrale.it",
+            "object": "Libro disponibile per il ritiro",
+            "content": "Gentile utente, il libro \"Storie dal sottosuolo\" è ora disponibile. Può ritirarlo entro 3 giorni.",
+            "date": "22-03-2025",
+            "new": false
+        },
+        {
+            "sender": "laura@fortmail.cloud",
+            "object": "Allenamento rimandato",
+            "content": "Ciao Dennet, l'allenamento di oggi è rimandato a domani alle 18. Ci vediamo lì!",
+            "date": "09-04-2025",
+            "new": false
+        },
+        {
+            "sender": "dennet.herman@fortmail.cloud",
+            "object": "su r.",
+            "content": "<a href='#' download id='downloadRZIP'>r.zip</a>\n\npass: **** (🎬 r 🎮 f)",
+            "date": "12-04-2025",
+            "new": false
+        }
     ],
     "rebecca.ferrari@fortmail.cloud": [
-
+        {
+            "sender": "chiara@fortmail.cloud",
+            "object": "Re: Cambio orario call",
+            "content": "Certo Chiara, va benissimo alle 15:30. Grazie per l'aggiornamento!",
+            "date": "13-04-2025",
+            "new": false
+        },
+        {
+            "sender": "anonymous@fartmail.cloud",
+            "object": "Ciao!",
+            "content": "- anonymous:\nE' da un po' che ti volevo scrivere... come stai?",
+            "response": [
+                "- rebecca.ferrari:\nCiao... non penso di conoscerti. Sicuro di non aver sbagliato mail?",
+                "- anonymous:\nNo, ti ho vista più volte. Pensavo solo fosse il momento giusto per scriverti.",
+                "- rebecca.ferrari:\nNon capisco... dove mi avresti vista?",
+                "- anonymous:\nIn giro. Biblioteca, qualche volta al parco, una volta anche alla fermata.\nNon ti ho mai disturbata.",
+                "- rebecca.ferrari:\nAspetta... mi stai seguendo? Perché stai facendo questo?",
+                "- anonymous:\nNo, non ti seguo. Mi capita di incrociarti. Solo che… ti osservo. Ti ascolto.\nÈ come se fossimo già connessi, anche se tu non lo sai.",
+                "- rebecca.ferrari:\nSmettila. Non è normale quello che stai facendo.",
+                "- anonymous:\nScusa... oggi ti ho vista mentre tornavo dall'ospedale.\nSembravi stanca. Hai mangiato?",
+                "- rebecca.ferrari:\nBasta. Non scrivermi più."
+            ],
+            "date": "13-04-2025",
+            "new": false
+        }
     ]
 }

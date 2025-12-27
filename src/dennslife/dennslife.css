@@ -5,8 +5,17 @@ body {
   padding: 0;
   color: #333;
   overflow-y: scroll;
-  background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%);
+background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%);
 
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+}
+
+h4 {
+margin-bottom: 1em;
 }
 
 /* Navbar stile Facebook 2016 */
@@ -66,6 +75,7 @@ nav .categories a:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 30px;
   max-width: 600px;
+  border-radius: 1em;
   /* Post più stretti */
   width: 100%;
   margin: 0 auto;
@@ -180,7 +190,7 @@ nav .categories a:hover {
   -webkit-user-drag: none;
   padding : 5px;
   transform-origin: center;
-  transform: scale(105%, 105%);
+  transform: scale(102%, 102%);
   cursor: pointer;
 }
 
@@ -190,6 +200,7 @@ nav .categories a:hover {
   width: 80%;
   max-width: 800px;
   max-height: 80%;
+  border-radius: 1em;
   overflow-y: auto;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
