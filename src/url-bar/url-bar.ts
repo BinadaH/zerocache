@@ -12,6 +12,30 @@ export function loadUrlBar(parent : HTMLDivElement){
         }
     })
 
+// <a href="#" class="bookmark-item">
+//     <img src="https://www.google.com/favicon.ico" alt="icon">
+//     <span>Google</span>
+//   </a>
+    
+    const bookmarks : Record<string, string> = {
+        "📧 Fortmail": "fortmail.cloud",
+        "DNSight": "dnsight.com"
+    }
+    
+    Object.keys(bookmarks).forEach(bookmark_key => {
+        const bookmark_item = document.createElement("a")
+        bookmark_item.classList.add("bookmark-item")
+        const name = document.createElement("span") 
+        name.innerText = bookmark_key
+        bookmark_item.appendChild(name)
+
+        bookmark_item.onclick = ()=> router.navigateTo(bookmarks[bookmark_key])
+
+        $<HTMLDivElement>("#bookmarks-bar")!.appendChild(bookmark_item)
+    })
+    
+
+
     return {
         backBtn: $<HTMLButtonElement>("#back-btn")!,
         forwardBtn: $<HTMLButtonElement>("#forward-btn")!,

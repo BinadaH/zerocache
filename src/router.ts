@@ -1,4 +1,4 @@
-import {load, load as LoadFortmail} from './fortmail/fortmail'
+import {load as LoadFortmail} from './fortmail/fortmail'
 import {load as LoadFartmail} from './fartmail/fartmail'
 import {load as LoadPageNotFound} from './pageNotFound/pageNotFound'
 
@@ -40,6 +40,14 @@ class Router {
 	history: Array<ParsedURL> = []
 	currPos = 0
 	urlInput: HTMLInputElement | null = null
+
+	constructor (){
+		document.addEventListener("mousedown", (event)=>{
+			if (event.button == 3 || event.button == 4) event.preventDefault()
+			if (event.button == 3) this.goBack()
+			else if (event.button == 4) this.goForward()
+		})
+	}
 	
 	navigateTo(url: string)  {
 		const parsedUrl = parseBrowserUrl(url)
@@ -50,7 +58,7 @@ class Router {
 	}
 	
 	loadPage(parsedUrl : ParsedURL){
-		console.log(this.history, this.currPos)
+		// console.log(this.history, this.currPos)
 		let load = routes[parsedUrl.domain]
 		if (!load) {
 			load = routes["pageNotFound"]
@@ -64,7 +72,7 @@ class Router {
 		if (this.history.length > 1){
 			this.currPos -= 1
 			const back_url = this.history[this.currPos]
-			console.log("Back: ", back_url)
+			// console.log("Back: ", back_url)
 			this.loadPage(back_url)
 		}
 	}
@@ -77,7 +85,7 @@ class Router {
 		if (this.currPos != this.history.length - 1){
 			this.currPos += 1
 			const forward_url = this.history[this.currPos]
-			console.log("Forward: ", forward_url)
+			// console.log("Forward: ", forward_url)
 			this.loadPage(forward_url)
 		}
 	}
