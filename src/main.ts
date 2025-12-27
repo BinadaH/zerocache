@@ -13,7 +13,7 @@ router.navigateTo("fortmail.cloud/login")
 
 setGameStep("Init", true)
 
-// 1. Blocca le scorciatoie da tastiera (Ctrl + Più, Ctrl + Meno, Ctrl + 0)
+// Blocca le scorciatoie da tastiera (Ctrl + Più, Ctrl + Meno, Ctrl + 0)
 window.addEventListener('keydown', (event) => {
     if (event.ctrlKey && (
         event.key === '+' || 
@@ -27,7 +27,7 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// 2. Blocca lo zoom effettuato con Ctrl + Rotellina del mouse
+// Blocca lo zoom effettuato con Ctrl + Rotellina del mouse
 window.addEventListener('wheel', (event) => {
     if (event.ctrlKey) {
         event.preventDefault();

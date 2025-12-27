@@ -1,0 +1,257 @@
+body {
+  font-family: 'Arial', sans-serif;
+  /* Grigio chiaro */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  overflow-y: scroll;
+  background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%);
+
+}
+
+/* Navbar stile Facebook 2016 */
+nav {
+  position: fixed;
+  background-color: #124435;
+  /* Verde scuro */
+  color: white;
+  padding: 10px 20px;
+  width: 100vw;
+  z-index: 10;
+  user-select: none;
+}
+
+nav .title {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+nav .categories a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+nav .categories a:hover {
+  text-decoration: underline;
+}
+
+/* Contenitore centrale */
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.first-spacer {
+  background-color: transparent;
+  padding: 30px;
+  max-width: 600px;
+  /* Post più stretti */
+  width: 100%;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  height: 0px;
+  z-index: -1;
+}
+
+/* Post e card */
+.post-card {
+  background-color: rgb(206, 255, 178);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 600px;
+  /* Post più stretti */
+  width: 100%;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-card:hover h2 {
+  text-decoration: underline;
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.post-card .post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-card .post-header img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.post-card .post-header .name {
+  font-weight: bold;
+}
+
+.post-card .post-header .time {
+  font-size: 0.9em;
+  color: #999;
+}
+
+.post-card .post-content {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  /* Show only 3 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+
+}
+
+.post-card .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #2e8b57;
+  /* Verde scuro */
+}
+
+.like-comment-button {
+  cursor: pointer;
+  color: #2e8b57;
+  /* Verde scuro */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.like-comment-button svg {
+  margin-right: 5px;
+}
+
+.like-comment-button:hover {
+  text-decoration: underline;
+}
+
+/* Modal Popup per visualizzare i post */
+.modal {
+  position: fixed;
+  top: 2em;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  font-size: 18px;
+  overflow: scroll;
+  user-select: none;
+  
+}
+.modal img{
+  width: 90%;
+  -webkit-user-drag: none;
+  padding : 5px;
+  transition: all 0.2s;
+}
+
+.modal img:hover{
+  width: 90%;
+  -webkit-user-drag: none;
+  padding : 5px;
+  transform-origin: center;
+  transform: scale(105%, 105%);
+  cursor: pointer;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: #999;
+}
+
+.close-btn svg:hover {
+  fill: #e74c3c;
+}
+
+/* Sezione Commenti e Like nel Popup */
+.post-content {
+  margin-bottom: 20px;
+}
+
+.comments-section {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.comment {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.comment img {
+  width: 30px;
+  height: 30px;
+}
+
+.comment .username {
+  font-weight: bold;
+}
+
+/* Differenziazione tra contenuto e commenti */
+.modal-content .post-content {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.modal-content .comments-section {
+  font-size: 1em;
+  color: #888;
+}
+
+.footer {
+  height: 10em;
+}
