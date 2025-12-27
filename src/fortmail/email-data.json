@@ -1,44 +1,53 @@
-[
-    {
-        "sender": "info@cinemastella.it",
-        "object": "Conferma acquisto biglietti - Cinema Stella",
-        "content": "Ciao Robbin, ti confermiamo l'acquisto dei tuoi biglietti per il film \"La notte dei sogni\". Ti aspettiamo, puoi mostrare questa email all'ingresso. Buona visione!",
-        "date": "01-03-2025",
-        "new": false
-    },
-    {
-        "sender": "davide@fortmail.cloud",
-        "object": "Budget approvato",
-        "content": "Ciao Davide, il budget è stato finalmente approvato. Appena hai un attimo possiamo allinearci per il kickoff?",
-        "date": "11-03-2025",
-        "new": false
-    },
-    {
-        "sender": "chiara@fortmail.cloud",
-        "object": "Slide per la presentazione",
-        "content": "Ciao sono Chiara, potresti inviarmi le slide aggiornate per domani? Vorrei rivederle con calma stasera.",
-        "date": "13-04-2025",
-        "new": false
-    },
-    {
-        "sender": "info@cdaneuro.it",
-        "object": "📅 Conferma appuntamento - Neurologia Cognitiva",
-        "content": "Gentile Sig. G.,\n\nLa informiamo che il Suo appuntamento presso il nostro reparto di Neurologia Cognitiva è stato confermato:\n\n🧠 Data: Mercoledì 19 Aprile 2025\n🕒 Ora: 10:45\n🏥 Presso: Centro Diagnosi Avanzata – Via Riserva 8, Livello -1, Stanza 104\n\n<u>Motivo della visita:</u>\nValutazione approfondita dei recenti episodi di discontinuità mnemonica e conferma diagnostica relativa a pattern di falsi ricordi indotti.\nSi raccomanda di portare eventuali diari cognitivi, annotazioni, e qualsiasi dispositivo su cui Lei ritenga siano state memorizzate “esperienze dubbie”.\n\nCi vediamo presto,\nSegreteria Neurologia, Centro Diagnosi Avanzata",
-        "date": "14-04-2025",
-        "new": false
-    },
-    {
-        "sender": "assistenza@fartmail.cloud",
-        "object": "⚠️ Tentativo di accesso! Proteggi il tuo account ⚠️",
-        "content": "È stato rilevato un tentativo di accesso sospetto alle: {orario}.\nSe non sei stato tu, ci dispiace! 😢💀😱\nReimposta la tua password adesso! → [login]\n\nGrazie per la collaborazione¡\nIl Team di FortMail,",
-        "date": "",
-        "new": true
-    },
-    {
-        "sender": "assistenza@cybersec.com",
-        "object": "Difenditi dagli attacchi informatici: scopri il nostro corso di Cyber Security",
-        "content": "Ciao Robbin,\n\nle minacce informatiche sono sempre più frequenti e sofisticate.\nSai come proteggere i tuoi dati, il tuo lavoro e la tua identità digitale?\nAbbiamo creato un corso pensato proprio per chi vuole capire, prevenire e reagire agli attacchi online, anche senza esperienza tecnica.\n\n🛡️ Corso Online di Cyber Security – livello base/intermedio\n\n<u>Cosa imparerai:</u>\n• Come funzionano gli attacchi hacker più comuni (phishing, malware, SQL Injection)\n• Le strategie per proteggere i tuoi dispositivi e le tue password\n• Le basi della sicurezza di rete e della privacy online\n\n<u>Tratteremo strumenti come:</u>\n<b>• DNSight (dnsight.net)\n• SQL injection</b>\n\n100% online – segui quando e dove vuoi\n📄 Offriamo una guida demo gratuita in allegato (guida_demo.pdf)\n👉 Promo lancio: -40% per le prime 100 iscrizioni\n\nSCARICA LA DEMO → [LINK]\n\nInvesti nella tua sicurezza digitale.\nIl momento migliore per iniziare?\n\nA presto,\nIl team di CyberSec.",
-        "date": "",
-        "new": true
-    }
-]
+{
+    "robbin.greco@fortmail.cloud": [
+
+        {
+            "sender": "info@cinemastella.it",
+            "object": "Conferma acquisto biglietti - Cinema Stella",
+            "content": "Ciao Robbin, ti confermiamo l'acquisto dei tuoi biglietti per il film \"La notte dei sogni\". Ti aspettiamo, puoi mostrare questa email all'ingresso. Buona visione!",
+            "date": "01-03-2025",
+            "new": false
+        },
+        {
+            "sender": "davide@fortmail.cloud",
+            "object": "Budget approvato",
+            "content": "Ciao Davide, il budget è stato finalmente approvato. Appena hai un attimo possiamo allinearci per il kickoff?",
+            "date": "11-03-2025",
+            "new": false
+        },
+        {
+            "sender": "chiara@fortmail.cloud",
+            "object": "Slide per la presentazione",
+            "content": "Ciao sono Chiara, potresti inviarmi le slide aggiornate per domani? Vorrei rivederle con calma stasera.",
+            "date": "13-04-2025",
+            "new": false
+        },
+        {
+            "sender": "info@cdaneuro.it",
+            "object": "📅 Conferma appuntamento - Neurologia Cognitiva",
+            "content": "Gentile Sig. G.,\n\nLa informiamo che il Suo appuntamento presso il nostro reparto di Neurologia Cognitiva è stato confermato:\n\n🧠 Data: Mercoledì 19 Aprile 2025\n🕒 Ora: 10:45\n🏥 Presso: Centro Diagnosi Avanzata – Via Riserva 8, Livello -1, Stanza 104\n\n<u>Motivo della visita:</u>\nValutazione approfondita dei recenti episodi di discontinuità mnemonica e conferma diagnostica relativa a pattern di falsi ricordi indotti.\nSi raccomanda di portare eventuali diari cognitivi, annotazioni, e qualsiasi dispositivo su cui Lei ritenga siano state memorizzate “esperienze dubbie”.\n\nCi vediamo presto,\nSegreteria Neurologia, Centro Diagnosi Avanzata",
+            "date": "14-04-2025",
+            "new": false
+        },
+        {
+            "sender": "assistenza@fartmail.cloud",
+            "object": "⚠️ Tentativo di accesso! Proteggi il tuo account ⚠️",
+            "content": "È stato rilevato un tentativo di accesso sospetto alle: {orario}.\nSe non sei stato tu, ci dispiace! 😢💀😱\nReimposta la tua password adesso! → [login]\n\nGrazie per la collaborazione¡\nIl Team di FortMail,",
+            "date": "",
+            "new": true
+        },
+        {
+            "sender": "assistenza@cybersec.com",
+            "object": "Difenditi dagli attacchi informatici: scopri il nostro corso di Cyber Security",
+            "content": "Ciao Robbin,\n\nle minacce informatiche sono sempre più frequenti e sofisticate.\nSai come proteggere i tuoi dati, il tuo lavoro e la tua identità digitale?\nAbbiamo creato un corso pensato proprio per chi vuole capire, prevenire e reagire agli attacchi online, anche senza esperienza tecnica.\n\n🛡️ Corso Online di Cyber Security – livello base/intermedio\n\n<u>Cosa imparerai:</u>\n• Come funzionano gli attacchi hacker più comuni (phishing, malware, SQL Injection)\n• Le strategie per proteggere i tuoi dispositivi e le tue password\n• Le basi della sicurezza di rete e della privacy online\n\n<u>Tratteremo strumenti come:</u>\n<b>• DNSight (dnsight.net)\n• SQL injection</b>\n\n100% online – segui quando e dove vuoi\n📄 Offriamo una guida demo gratuita in allegato (guida_demo.pdf)\n👉 Promo lancio: -40% per le prime 100 iscrizioni\n\nSCARICA LA DEMO → [LINK]\n\nInvesti nella tua sicurezza digitale.\nIl momento migliore per iniziare?\n\nA presto,\nIl team di CyberSec.",
+            "date": "",
+            "new": true
+        }
+    ],
+    "dennet.herman@fortmail.cloud": [
+
+    ],
+    "rebecca.ferrari@fortmail.cloud": [
+
+    ]
+}

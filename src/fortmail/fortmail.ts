@@ -6,6 +6,7 @@ import navBarCSS from "./fortmail-nav.css?inline"
 import authData from "./auth-data.json"
 import loadInbox from "./inbox"
 import {router} from "../router"
+import { GameInfo } from '../state'
 
 export function load(viewport: HTMLDivElement, path: string){
     viewport.innerHTML = navBar + `<style>${navBarCSS}</style>`
@@ -48,22 +49,24 @@ const loadLogin = (viewport: HTMLDivElement) => {
     $<HTMLInputElement>("#email")!.onchange = () => {
         const email = $<HTMLInputElement>("#email")!.value
         const password = $<HTMLInputElement>("#password")!
-        authData.forEach(user => {
-            if (user.email == email) {
-                password.value = user.password
-            }
-        });
+        const user = authData.find(user => user.email === email);
+        if (user) {
+            password.value = user.password
+        }
     }
 
     $<HTMLButtonElement>("#loginBtn")!.onclick = () => {
         const email = $<HTMLInputElement>("#email")!.value
         const password = $<HTMLInputElement>("#password")!.value
-        authData.forEach(user => {
-            if (user.email == email && user.password == password) {
-                router.navigateTo("fortmail.cloud/inbox")
-            }
-        })
-        $<HTMLDivElement>("#error")!.innerText = "Wrong credentials!"
+        const authenticatedUser = authData.find(user => user.email === email && user.password === password);
+
+        if (authenticatedUser) {
+            GameInfo.fortmailLoggedInUsers.push({ email, password });
+            GameInfo.currUser = {email, password}
+            router.navigateTo("fortmail.cloud/inbox");
+        } else {
+            $<HTMLDivElement>("#error")!.innerText = "Wrong credentials!";
+        }
     }
 }
 

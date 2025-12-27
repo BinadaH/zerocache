@@ -19,8 +19,9 @@ type FortmailUser = {
   password: string,
 }
 
-const GameInfo = {
-  fortmailLoggedInUsers : [] as FortmailUser[]
+export const GameInfo = {
+  fortmailLoggedInUsers: [] as FortmailUser[],
+  currUser: null as FortmailUser | null,
 }
 
 type GameStep = keyof typeof GameState
@@ -32,3 +33,5 @@ export function setGameStep(step: GameStep, value: boolean) {
 export function getGameStep(step: GameStep) : boolean {
   return GameState[step]
 }
+
+

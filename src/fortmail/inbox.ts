@@ -1,21 +1,27 @@
 import fortmailInbox from "./fortmail-inbox.html?raw"
 import inboxCSS from "./inbox.css?inline"
 import emailData from "./email-data.json"
+import { GameInfo } from "../state"
 
 export default function loadInbox (viewport: HTMLDivElement) {
     const site = fortmailInbox +
                 `<style>${inboxCSS}</style>`
     viewport.innerHTML += site
 
+    const currUser = GameInfo.currUser!
+    const currEmailData = emailData[currUser.email as keyof typeof emailData]
+
     const emailModal = $<HTMLDivElement>("#emailModal")!
     const closeBtn = $<HTMLSpanElement>(".close-button")!
-    
+
+    $<HTMLSpanElement>(".greeter")!.innerText += " " + currUser.email.split('.')[0].charAt(0).toUpperCase() + currUser.email.split('.')[0].slice(1);
+
     $<HTMLDivElement>(".emailContainer")!.onclick = (event) => {
         const email = (event.target as HTMLElement).closest(".email");
         
         if (email) {
             const id = Number((email as HTMLElement).dataset.id);
-            const jsonEmail = emailData[id];
+            const jsonEmail = currEmailData[id];
 
             if (email.classList.contains("new")) {
                 email.classList.remove("new");
@@ -52,10 +58,10 @@ export default function loadInbox (viewport: HTMLDivElement) {
     closeBtn.onclick = () => {
         emailModal.style.display = "none";
     };
-    loadEmails()
+    loadEmails(currEmailData)
 }
 
-const loadEmails = async () => {
+const loadEmails = async (currEmailData: typeof emailData["robbin.greco@fortmail.cloud"]) => {
     const container = $<HTMLDivElement>(".emailContainer")!
 
     const today = new Date();
@@ -67,13 +73,13 @@ const loadEmails = async () => {
 
     const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
-    for (let i = 0; i < emailData.length; i++) {
-        if (emailData[i].new == false) {
+    for (let i = 0; i < currEmailData.length; i++) {
+        if (currEmailData[i].new == false) {
             const email = `
             <div data-id="${i}" class="email">
-                <h3 class="sender">${emailData[i].sender}</h3>
-                <h5 class="subject">${emailData[i].object}</h5>
-                <h5 class="date">${emailData[i].date}</h5>
+                <h3 class="sender">${currEmailData[i].sender}</h3>
+                <h5 class="subject">${currEmailData[i].object}</h5>
+                <h5 class="date">${currEmailData[i].date}</h5>
             </div>
             `
             container.insertAdjacentHTML('afterbegin', email);
@@ -81,8 +87,8 @@ const loadEmails = async () => {
             await delay(2000);
             const emailNew = `
             <div data-id="${i}" class="new email">
-                <h3 class="sender">${emailData[i].sender}</h3>
-                <h5 class="subject">${emailData[i].object}</h5>
+                <h3 class="sender">${currEmailData[i].sender}</h3>
+                <h5 class="subject">${currEmailData[i].object}</h5>
                 <h5 class="date">${dateNow}</h5>
             </div>
             `

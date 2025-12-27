@@ -54,7 +54,7 @@ body {
     }
 
     & .emailContainer {
-        padding-top: 3em;
+        padding-top: 6em;
         flex-grow: 1;
         display: flex;
         align-items: center;
@@ -73,7 +73,6 @@ body {
         background: #fff;
         gap: 2em;
     }
-
 
     & .new {
         animation: outlineIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
@@ -120,7 +119,7 @@ body {
         padding: 2.5em;
         border-radius: 0.5em;
         width: 60vw;
-        max-height: 85vh;
+        max-height: 55vh;
         overflow-y: auto;
         position: relative;
         color: #333;
@@ -153,5 +152,13 @@ body {
         font-size: 1.8em;
         cursor: pointer;
         color: #aaa;
+    }
+
+    & .greeter {
+        max-height: fit-content;
+        position: absolute;
+        margin-left: 6.5em;
+        margin-top: 1em;
+        font-size: 2em;
     }
 }

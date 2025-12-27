@@ -9,6 +9,27 @@ const {refreshBtn, backBtn, forwardBtn, urlInput, loadingLine} = loadUrlBar(docu
 router.setButtons(refreshBtn, forwardBtn, backBtn)
 router.setInput(urlInput)
 router.setLoadingLine(loadingLine)
-router.navigateTo("fortmail.cloud/inbox")
+router.navigateTo("fortmail.cloud/login")
 
 setGameStep("Init", true)
+
+// 1. Blocca le scorciatoie da tastiera (Ctrl + Più, Ctrl + Meno, Ctrl + 0)
+window.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && (
+        event.key === '+' || 
+        event.key === '-' || 
+        event.key === '=' || 
+        event.key === '0' ||
+        event.keyCode === 187 || // Tasto +
+        event.keyCode === 189    // Tasto -
+    )) {
+        event.preventDefault();
+    }
+});
+
+// 2. Blocca lo zoom effettuato con Ctrl + Rotellina del mouse
+window.addEventListener('wheel', (event) => {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
