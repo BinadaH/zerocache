@@ -1,10 +1,11 @@
-.fortmailBody {
+body {
     font-size: clamp(0.875rem, 0.6932rem + 0.4545vw, 1rem);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #3a7bd5, #00d2ff);
     color: #fff;
-    height: calc(100vh - 10em);
-    
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+}
+
+.fortmailBody {
     & h1 {
         font-size: 2em;
         font-weight: bold;

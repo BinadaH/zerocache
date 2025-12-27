@@ -7,4 +7,4 @@ const {refreshBtn, backBtn, forwardBtn, urlInput} = loadUrlBar(document.querySel
 
 router.setButtons(refreshBtn, forwardBtn, backBtn)
 router.setInput(urlInput)
-router.navigateTo("fortmail.cloud/")
+router.navigateTo("fortmail.cloud/inbox")

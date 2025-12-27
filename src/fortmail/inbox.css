@@ -2,15 +2,84 @@ body {
     font-size: clamp(0.875rem, 0.6932rem + 0.4545vw, 1rem);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #3a7bd5, #00d2ff);
-    color: #fff
+    color: #fff;
 }
+.fortmailInboxBody {
+    display: flex;
+    & h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+    
+    & h2 {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
 
-h1 {
-    font-size: 2em;
-    font-weight: bold;
-}
+    & h3 {
+        font-size: 1.2em;
+    }
 
-h2 {
-    font-size: 1.4em;
-    font-weight: bold;
+    & .sidebar {
+        background: #2972bb;
+        max-width: 20vw;
+        padding: 1em;
+    }
+
+    & .sidebarList {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: calc(100vh - 10em - 2em);
+    }
+
+    & .sidebarList li {
+        padding: 1em;
+        border-radius: 1em;
+        cursor: pointer;
+    }
+
+    & .sidebarList li:hover:not(.selected) {
+        background: #397fc5;
+    }
+
+    & .selected {
+        background: #4192e2;
+    }
+
+    & .emailContainer {
+        padding-top: 3em;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    & .email {
+        border-radius: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 7vh;
+        width: 55vw;
+        color: rgb(85, 85, 85);
+        background: #fff;
+        gap: 2em
+    }
+
+    & .email:hover {
+        cursor: pointer;
+        background: #cccccc;
+    }
+
+    & .sender {
+        color: #1A73E8;
+        font-weight: bold;
+        margin-left: 1em;
+    }
+
+    & .date {
+        margin-right: 1em;
+    }
 }
