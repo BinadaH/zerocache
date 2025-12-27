@@ -2,7 +2,7 @@ import {load as LoadFortmail} from './fortmail/fortmail'
 import {load as LoadFartmail} from './fartmail/fartmail'
 import { load as LoadDNSight } from './dnsight/dnsight';
 import {load as LoadPageNotFound} from './pageNotFound/pageNotFound'
-
+import {animate} from 'animejs'
 interface ParsedURL {
 	domain: string;
 	path: string;
@@ -42,6 +42,8 @@ class Router {
 	history: Array<ParsedURL> = []
 	currPos = 0
 	urlInput: HTMLInputElement | null = null
+	loadingLine: HTMLDivElement | null = null
+	reloadBtn: HTMLButtonElement | null = null
 
 	constructor (){
 		document.addEventListener("mousedown", (event)=>{
@@ -52,11 +54,49 @@ class Router {
 	}
 	
 	navigateTo(url: string)  {
-		const parsedUrl = parseBrowserUrl(url)
-		this.history = this.history.slice(0, this.currPos + 1)
-		this.history.push(parsedUrl)
-		this.currPos = this.history.length - 1
-		this.loadPage(parsedUrl)
+		animate(this.loadingLine!, {
+			opacity: { from: 0, to: 1, duration: 500 },
+			display: { from: "none", to: "block"}
+		})
+
+
+		const loading_anim = animate(this.reloadBtn!, {
+			opacity: {to: "0.5"},
+			rotate: "1turn",
+			// duration: 500,
+			loop: true
+		})
+
+		setTimeout(()=>{
+			const parsedUrl = parseBrowserUrl(url)
+			this.history = this.history.slice(0, this.currPos + 1)
+			this.history.push(parsedUrl)
+			this.currPos = this.history.length - 1
+			this.loadPage(parsedUrl)	
+			animate(this.loadingLine!, {
+				opacity: { from: 1, to: 0, duration: 500 },
+				onComplete: () =>  {
+					animate(this.loadingLine!, {
+						display: {to: "none"}
+					})
+				}
+			})
+
+			loading_anim.pause()
+			animate(this.reloadBtn!, {
+				opacity: [
+					{to: "0.2", duration: 50},
+					{ from: "0", to: "1", duration: 700 }
+				],
+				rotate: [
+					{ to: "-1turn", duration: 10 }, 
+					{ to: "0turn", duration: 700 }
+				],
+			})
+
+			// loading_anim.loop = false
+		}, Math.round(Math.random() * 800) + 500)
+		
 	}
 	
 	loadPage(parsedUrl : ParsedURL){
@@ -98,11 +138,17 @@ class Router {
 		forwardBtn.onclick = ()=> this.goForward()
 		backBtn.onclick = ()=> this.goBack()
 		
+		this.reloadBtn = reloadBtn
 	}
 	
 	
 	setInput(urlInput: HTMLInputElement){
 		this.urlInput = urlInput
+	}
+
+
+	setLoadingLine(loadingLine: HTMLDivElement){
+		this.loadingLine = loadingLine
 	}
 }
 

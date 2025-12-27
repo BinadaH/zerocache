@@ -40,7 +40,8 @@ export function loadUrlBar(parent : HTMLDivElement){
         backBtn: $<HTMLButtonElement>("#back-btn")!,
         forwardBtn: $<HTMLButtonElement>("#forward-btn")!,
         refreshBtn: $<HTMLButtonElement>("#refresh-btn")!,
-        urlInput: $<HTMLInputElement>("#url-input")!
+        urlInput: $<HTMLInputElement>("#url-input")!,
+        loadingLine: $<HTMLDivElement>("#loading-container")!
     }
 }
 

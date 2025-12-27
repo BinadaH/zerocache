@@ -78,6 +78,7 @@
 
 /* Stili per la Barra dei Preferiti */
 .bookmarks-bar {
+  position: relative;
   display: flex;
   align-items: center;
   background-color: var(--header-bg);
@@ -123,6 +124,30 @@
   margin: 0 4px;
 }
 
+/* The Progress Bar Container */
+.loading-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Very thin line */
+  overflow: hidden;
+  display: none;
+}
+
+/* The Animated Line */
+.loading-line {
+  width: 30%; /* Width of the moving segment */
+  height: 100%;
+  background-color: var(--accent-color);
+  animation: loading-scan 1s infinite ease-in-out;
+}
+
+@keyframes loading-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
 </style>
 <div class="browser-header">
   <button id="back-btn" class="nav-icon" title="Indietro">
@@ -146,6 +171,8 @@
 </div>
 <div id="bookmarks-bar" class="bookmarks-bar">
   
-
+<div id="loading-container" class="loading-container">
+    <div class="loading-line"></div>
+  </div>
 
 </div>

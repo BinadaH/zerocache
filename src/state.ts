@@ -1,36 +1,25 @@
-// state.ts
-export interface GameState {
-  player: {
-    username: string;
-    balance: number;
-    inventory: string[];
-  };
-  browser: {
-    currentUrl: string;
-    history: string[];
-    isHacked: boolean;
-  };
+
+const GameState = {
+  Init: true,
+  FirstMailsRead: false,
+  GuideDownloaded: false, 
+  AnalyzeFakeDomainOnDNSight: false,
+  VisitDennsLife: false,
+  SQLInjection: false,
+  LoginDennsAccount: false,
+  DownloadZip: false,
+  LoginRebbsAccount: false,
+  ViewConvo: false,
+  ConnectToCams: false
 }
 
-// Initial default state
-const state: GameState = {
-  player: {
-    username: "Player1",
-    balance: 500,
-    inventory: ["Basic Decryptor"],
-  },
-  browser: {
-    currentUrl: "home.com",
-    history: ["home.com"],
-    isHacked: false,
-  }
-};
 
-// Accessor functions
-export const getState = () => state;
+type GameStep = keyof typeof GameState
 
-export const updateState = (newState: Partial<GameState>) => {
-  Object.assign(state, newState);
-  // Optional: Trigger a re-render of the UI here
-  console.log("State updated:", state);
-};
+export function setGameStep(step: GameStep, value: boolean) {
+  GameState[step] = value
+}
+
+export function getGameStep(step: GameStep) : boolean {
+  return GameState[step]
+}
