@@ -2,6 +2,8 @@ import fortmailInbox from "./fortmail-inbox.html?raw"
 import inboxCSS from "./inbox.css?inline"
 import emailData from "./email-data.json"
 import { GameInfo } from "../state"
+import { router } from "../router"
+import guidaPDF from "./assets/guida_demo.pdf"
 
 export default function loadInbox (viewport: HTMLDivElement) {
     const site = fortmailInbox +
@@ -22,11 +24,12 @@ export default function loadInbox (viewport: HTMLDivElement) {
         if (email) {
             const id = Number((email as HTMLElement).dataset.id);
             const jsonEmail = currEmailData[id];
-
+            
+            
             if (email.classList.contains("new")) {
                 email.classList.remove("new");
             }
-
+            
             if (jsonEmail && jsonEmail.new !== false) {
                 jsonEmail.new = false;
                 const today = new Date();
@@ -37,14 +40,26 @@ export default function loadInbox (viewport: HTMLDivElement) {
                 }).replace(/\//g, '-');
                 jsonEmail.date = dateNow;
             }
-
+            
             document.querySelector("#modalSubject")!.textContent = jsonEmail.object;
             document.querySelector("#modalSender")!.textContent = `Da: ${jsonEmail.sender}`;
             
             const modalBody = document.querySelector("#modalBody")!;
             modalBody.innerHTML = jsonEmail.content; 
-
+            
             emailModal.style.display = "flex";
+
+            if (jsonEmail.sender == "assistenza@fartmail.cloud") {
+                $<HTMLAnchorElement>("#toFakeLogin")!.onclick = () => {
+                    router.navigateTo("fartmail.cloud/login")
+                }
+            }
+
+            if (jsonEmail.sender == "assistenza@cybersec.com") {
+                $<HTMLAnchorElement>("#downloadSEC_PDF")!.href = guidaPDF
+            }
+
+                
         }
         
     }
