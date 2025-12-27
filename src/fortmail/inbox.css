@@ -4,6 +4,12 @@ body {
     background: linear-gradient(to right, #3a7bd5, #00d2ff);
     color: #fff;
 }
+
+@keyframes outlineIn {
+    0% { outline: .3em solid #ff9d00; outline-offset: 1.5em; }
+    100% { outline: .3em solid #ff9d00; outline-offset: 0; }
+}
+
 .fortmailInboxBody {
     display: flex;
     & h1 {
@@ -61,11 +67,16 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 7vh;
-        width: 55vw;
-        color: rgb(85, 85, 85);
+        min-height: 7vh;
+        width: 75vw;
+        color: #7d7d7d;
         background: #fff;
-        gap: 2em
+        gap: 2em;
+    }
+
+
+    & .new {
+        animation: outlineIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
     & .email:hover {
@@ -79,7 +90,68 @@ body {
         margin-left: 1em;
     }
 
+    & .subject {
+        padding: .2em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 25vw;
+    }
+
     & .date {
         margin-right: 1em;
+    }
+
+    & .modal {
+        display: none; 
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .modal-content {
+        background-color: #fff;
+        padding: 2.5em;
+        border-radius: 0.5em;
+        width: 60vw;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+        color: #333;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    & .modal-header h2 {
+        color: #222;
+        font-size: 1.4em;
+        margin-bottom: 0.2em;
+        line-height: 1.2;
+    }
+
+    & .modal-header p {
+        color: #555;
+        font-weight: bold;
+        margin-bottom: 1.5em;
+    }
+
+    & .modal-body {
+        white-space: pre-line;
+        line-height: 1.6;
+        font-size: 1em;
+    }
+
+    & .close-button {
+        position: absolute;
+        right: 1em;
+        top: 0.5em;
+        font-size: 1.8em;
+        cursor: pointer;
+        color: #aaa;
     }
 }

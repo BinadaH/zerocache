@@ -10,20 +10,15 @@
         </ul>
     </aside>
     <main class="emailContainer">
-        <div class="email">
-            <h3 class="sender">Mittente</h4>
-            <h5 class="subject">Oggetto</h5>
-            <h5 class="date">13-04-2025</h5>
-        </div>
-        <div class="email">
-            <h3 class="sender">Mittente</h4>
-            <h5 class="subject">Oggetto</h5>
-            <h5 class="date">13-04-2025</h5>
-        </div>
-        <div class="email">
-            <h3 class="sender">Mittente</h4>
-            <h5 class="subject">Oggetto</h5>
-            <h5 class="date">13-04-2025</h5>
+        <div id="emailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-header">
+                    <h2 id="modalSubject"></h2>
+                    <p id="modalSender"></p>
+                </div>
+                <div id="modalBody" class="modal-body"></div>
+            </div>
         </div>
     </main>
 </div>
