@@ -3,6 +3,7 @@ import {load as LoadFartmail} from './fartmail/fartmail'
 import { load as LoadDNSight } from './dnsight/dnsight';
 import {load as LoadPageNotFound} from './pageNotFound/pageNotFound'
 import {load as LoadDennsLife} from './dennslife/dennslife'
+import {load as LoadCameras} from './cameras/cameras'
 
 
 import {animate} from 'animejs'
@@ -40,6 +41,7 @@ const routes : Record<string, (viewport: HTMLDivElement, path: string)=> void> =
 	"dnsight.com": LoadDNSight,
 	"dennslife.blog": LoadDennsLife,
 	"pageNotFound": LoadPageNotFound,
+	"localhost": LoadCameras,
 }
 
 class Router {

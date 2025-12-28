@@ -4,7 +4,6 @@ import fartmailDashboard from "./fartmail-dashboard.html?raw"
 import db from "./db.json"
 
 export function load(viewport : HTMLDivElement, path: string){
-    
     switch(path) {
         case "login":
             viewport.innerHTML = fartmail + `<style>${fartmailCSS}</style>`

@@ -1,0 +1,78 @@
+<main class="main">
+    <section class="form" id="form">
+        <h1>Security Camera Access</h1>
+        <form onsubmit="form()">
+            <label for="ip">Enter Camera IP</label>
+            <input list="ip-history" type="text" name="ip" id="ip" placeholder="IP" required />
+            <label for="ip">Enter Camera Key</label>
+            <input type="text" name="key" id="key" placeholder="key" required />
+
+            <datalist id="ip-history">
+                <option value="202.15.14.20:9092">
+            </datalist>
+
+            <br>
+            <a onclick="form()">Connect</a>
+        </form>
+    </section>
+
+    <section class="camera">
+        <!-- <img src="camera.png" alt="Security Camera Feed"> -->
+        <img src="./assets/nero.webp" id="img">
+        <p id="testofinale"></p>
+    </section>
+</main>
+<!-- <script>
+
+    const ipInput = document.getElementById("ip");
+    const keyInput = document.getElementById("key");
+
+    const t_fin = document.getElementById("testofinale");
+
+    ipInput.addEventListener("input", () => {
+        keyInput.value = "910234";
+
+    });
+
+    function form(){
+        if (ipInput.value == "202.15.14.20:9092"){
+            t_fin.style.display = "block";
+            document.getElementById("img").src = "loading.gif";
+            setTimeout(()=>{
+                // document.body.style.justifyContent = "left"
+
+                document.getElementById("form").remove();
+                document.getElementById("img").remove();
+                let a = "Non stai giocando... stai solo <b>ripercorrendo i tuoi passi</b>.<br>È l'ora di un nuovo inizio."
+                let after ="$%£$£$%$%££$%£$%";
+                let target = ""
+                let b = 0;
+                let let_to_stop = false;
+                let ll = setInterval(()=>{
+                    if (b >= a.length){
+                        return;
+                    }
+                    target += a[b];
+                    t_fin.innerHTML = target; 
+                    // if (b > a.length){
+                    //     if (!let_to_stop){
+                    //         b = 0;
+                    //         setInterval(()=>{
+                    //             target += after[b];
+                    //             b++;
+                    //         }, 50);
+                            
+                    //         clearTimeout(ll);
+                    //     }
+                    //     let_to_stop = true;
+                    // }
+                    // else{
+                    //     b++;
+                    // }
+                    b++;
+                }, 50);
+
+            }, 5000);
+        }
+    }
+</script> -->
