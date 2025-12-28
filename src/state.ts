@@ -1,3 +1,4 @@
+import authData from './fortmail/auth-data.json'
 
 const GameState = {
   Init: true,
@@ -20,7 +21,9 @@ type FortmailUser = {
 }
 
 export const GameInfo = {
-  fortmailLoggedInUsers: [] as FortmailUser[],
+  fortmailLoggedInUsers: [
+    authData[0]
+  ] as FortmailUser[],
   currUser: null as FortmailUser | null,
 }
 

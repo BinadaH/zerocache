@@ -9,7 +9,7 @@ const {refreshBtn, backBtn, forwardBtn, urlInput, loadingLine} = loadUrlBar(docu
 router.setButtons(refreshBtn, forwardBtn, backBtn)
 router.setInput(urlInput)
 router.setLoadingLine(loadingLine)
-router.navigateTo("dennslife.blog")
+router.navigateTo("fortmail.cloud")
 
 setGameStep("Init", true)
 

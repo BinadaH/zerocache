@@ -5,6 +5,7 @@ import { GameInfo } from "../state"
 import { router } from "../router"
 import guidaPDF from "./assets/guida_demo.pdf"
 import rZIP from "./assets/r.zip?url"
+import { getNameFromEmail } from "./fortmail"
 
 interface Email {
     sender: string;
@@ -15,18 +16,25 @@ interface Email {
     response?: string[];
 }
 
+
+
+
 export default function loadInbox (viewport: HTMLDivElement) {
+    const currUser = GameInfo.currUser!
+    if (!currUser) return router.navigateTo("fortmail.cloud/login")
+
+
     const site = fortmailInbox +
                 `<style>${inboxCSS}</style>`
     viewport.innerHTML += site
 
+    $<HTMLSpanElement>(".greeter")!.innerText += getNameFromEmail(currUser.email)
 
-    const currUser = GameInfo.currUser!
     const currEmailData = emailData[currUser.email as keyof typeof emailData] as unknown as Email[];
     const emailModal = $<HTMLDivElement>("#emailModal")!
     const closeBtn = $<HTMLSpanElement>(".close-button")!
 
-    $<HTMLSpanElement>(".greeter")!.innerText += " " + currUser.email.split('.')[0].charAt(0).toUpperCase() + currUser.email.split('.')[0].slice(1);
+    
 
     $<HTMLDivElement>(".emailContainer")!.onclick = (event) => {
         const email = (event.target as HTMLElement).closest(".email");
