@@ -19,7 +19,7 @@ export function loadUrlBar(parent : HTMLDivElement){
     
     const bookmarks : Record<string, string> = {
         "📧 Fortmail": "fortmail.cloud",
-        "DNSight": "dnsight.com"
+        "🔍 DNSight": "dnsight.com"
     }
     
     Object.keys(bookmarks).forEach(bookmark_key => {

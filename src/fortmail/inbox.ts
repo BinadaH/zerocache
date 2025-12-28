@@ -77,6 +77,7 @@ export default function loadInbox (viewport: HTMLDivElement) {
                                 </p>
                             `;
                         }).join('')}
+                        <h3 style="color: gray; text-align:center"><b>UTENTE BLOCCATO</b></h3>
                     </div>
                 `;
                 modalBody.innerHTML += responseHTML;

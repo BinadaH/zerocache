@@ -72,13 +72,12 @@ export function load(viewport: HTMLDivElement, path: string){
         
         resultBox.classList.remove('hidden');
         resultContent.innerHTML = `
-      <p><strong>Domain:</strong> ${domain}</p>
-      <p><strong>Status:</strong> ${available}</p>
-      <p><strong>Registered by:</strong> ${reg} </p>
-      <p><strong>Created On:</strong> ${formatDateToYYYYMMDD(created)}</p>
-      <p><strong>Expires On:</strong> ${formatDateToYYYYMMDD(exp)}</p>
-	  <p><strong>Registered by the same name:</strong> ${other}</p>
+      <p><b>Domain:</b> ${domain}</p>
+      <p><b>Status:</b> ${available}</p>
+      <p><b>Registered by:</b> ${reg} </p>
+      <p><b>Created On:</b> ${formatDateToYYYYMMDD(created)}</p>
+      <p><b>Expires On:</b> ${formatDateToYYYYMMDD(exp)}</p>
+	  <p><b>Registered by the same name:</b> ${other}</p>
     `; 
-        
     });
 }

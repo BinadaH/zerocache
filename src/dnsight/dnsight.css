@@ -1,18 +1,27 @@
-
-
-
 #site { 
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    height: calc(100vh - 5em);
-
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  height: calc(100vh - 15em);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10em;
+  
   & #results{
     width: 50%;
   }
-
+  
+  & main {
+  width: 40vw;
+  }
+  
+  & h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
   & .container {
     max-width: 800px;
     margin: auto;
@@ -42,7 +51,7 @@
   }
   
   & input[type="text"] {
-    width: 60%;
+    width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -64,11 +73,25 @@
     background-color: #0057b8;
   }
   
-  & #results {
+  & #results:not(.hidden) {
+    display: flex;
+    flex-direction: column;
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    width: 35vw;
+  }
+
+  & #resultContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  & .resultsContainer {
+    display: flex;
+    justify-content: center;
   }
   
   & .hidden {
